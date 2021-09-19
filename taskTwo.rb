@@ -1,18 +1,18 @@
 def InputMatrix()
     matrix = Array.new
-    puts "Введите колчиство строк в матрице"
+    puts "Inpuy number of row in matrix"
     n = gets.to_i
-    puts "Введите колчиство строк в матрице"
+    puts "Input number of columne in matrix"
     k = gets.to_i
     i = 0
     while i < n
-        puts "Введите #{i+1} строку"
-        stroka = readline().split
-        if stroka.length() != k
-            puts "Ввел неправильное количесвто элементов строки, попробуй еще раз"
+        puts "Input #{i+1} row"
+        row = readline().split
+        if row.length() != k
+            puts "Wrong input row, try again"
             next
         end
-        matrix << stroka
+        matrix << row
         i +=1
     end
     puts "\n"
@@ -25,7 +25,7 @@ def dotMatrix(matrixA, matrixB)
     row2 = matrixB.length()
     col2 = matrixB[0].length()
     if matrixA[0].length() != matrixB.length()
-        puts "Эти матрицы нельзя перемножать"
+        puts "columnes first matrix != rows second matrix, try again"
         return 0
     else
         resultMatrix = Array.new()
@@ -36,7 +36,7 @@ def dotMatrix(matrixA, matrixB)
                 (0..row2-1).each do |k|
                     element1 = matrixA[i][k]
                     element2 = matrixB[k][j]
-                    resultMatrix[i][j] += element1.to_i * element2.to_i
+                    resultMatrix[i][j] += element1.to_f * element2.to_f
                 end
             end
         end
@@ -55,16 +55,16 @@ def Output(massiv)
 end
 
 
-puts "Введите 1 матрицу"
+puts "Input first matrix"
 aMat = InputMatrix()
-puts "Введите 2 матрицу"
+puts "Input second matrix"
 bMat = InputMatrix()
-puts "Матрица 1:"
+puts "Matrix 1:"
 Output(aMat)
-puts "Матрица 2:"
+puts "Matrix 2:"
 Output(bMat)
 cMat = dotMatrix(aMat, bMat)
-puts "Произведение матриц:"
+puts "matrxi_1 * matrix_2:"
 Output(cMat)
 
 
